@@ -37,4 +37,3 @@ class UserBuilder{
         return User(mId, mName, mIconId, mIsFavorite)
     }
 }
-
