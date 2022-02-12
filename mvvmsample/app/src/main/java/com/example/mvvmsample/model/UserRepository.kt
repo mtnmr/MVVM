@@ -5,13 +5,13 @@ import androidx.lifecycle.LiveData
 class UserRepository : IUserRepository {
     private val dataSource = UserDataSource()
 
-    override fun getUser(userId:String):LiveData<User>(){
+    override fun getUser(userId:String):LiveData<User>{
         return dataSource.getUser(userId)
     }
 
     companion object{
         @Volatile
-        private val instance : UserRepository? = null
+        private var instance : UserRepository? = null
 
         fun getInstance(): UserRepository{
             return instance ?: synchronized(this){

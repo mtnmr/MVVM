@@ -4,14 +4,14 @@ data class User(
     val id:String,
     val name:String,
     val iconId:Int,
-    val isFavoirte:Boolean
+    val isFavorite:Boolean
 )
 
 class UserBuilder{
-    private val mId:String = ""
-    private val mName:String = ""
-    private val mIconId:Int = 0
-    private val mIsFavorite:Boolean = false
+    private var mId:String = ""
+    private var mName:String = ""
+    private var mIconId:Int = 0
+    private var mIsFavorite:Boolean = false
 
     fun setId(id:String):UserBuilder{
         mId = id
@@ -28,8 +28,8 @@ class UserBuilder{
         return this
     }
 
-    fun setIsFavorite(isFavoirte: Boolean):UserBuilder{
-        mIsFavorite = isFavoirte
+    fun setIsFavorite(isFavorite: Boolean):UserBuilder{
+        mIsFavorite = isFavorite
         return this
     }
 
