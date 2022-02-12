@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">mvvm sample</string>
+    <string-array name="user_list">
+        <item>100000001</item>
+        <item>200000002</item>
+        <item>300000003</item>
+        <item>400000004</item>
+    </string-array>
+
 </resources>
