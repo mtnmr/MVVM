@@ -24,6 +24,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:iconId="@{viewmodel.user.iconId}"
             tools:src="@tools:sample/avatars" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -37,7 +38,8 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iconImageView" />
+            app:layout_constraintTop_toBottomOf="@+id/iconImageView"
+            android:text="@{viewmodel.user.name}"/>
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/favoriteIconView"
@@ -47,7 +49,8 @@
             app:layout_constraintEnd_toStartOf="@+id/idView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/idView"
-            app:srcCompat="@android:drawable/btn_star" />
+            app:srcCompat="@android:drawable/btn_star"
+            app:goneUnless="@{viewmodel.user.favorite}"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/idView"
@@ -58,7 +61,8 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nameView" />
+            app:layout_constraintTop_toBottomOf="@+id/nameView"
+            android:text="@{viewmodel.user.id}"/>
 
 
         <View
