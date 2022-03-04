@@ -25,6 +25,7 @@ class GameViewModel:ViewModel() {
         currentWord = allWordsList.random()
 
         val tempWord= currentWord.toCharArray()
+        tempWord.shuffle()
         while (String(tempWord).equals(currentWord, false))
             tempWord.shuffle()
 
@@ -56,6 +57,14 @@ class GameViewModel:ViewModel() {
             increaseScore()
             true
         }else false
+    }
+
+    //play_againの処理、カウントリセット
+    fun reinitializeData(){
+        _score = 0
+        _currentWordCount = 0
+        wordList.clear()
+        getNextWord()
     }
 
     //ライフサイクルを確認するためのログの表示

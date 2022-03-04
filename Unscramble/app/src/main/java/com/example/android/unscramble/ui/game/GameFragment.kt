@@ -45,7 +45,9 @@ class GameFragment : Fragment() {
         binding = GameFragmentBinding.inflate(inflater, container, false)
 
         //ライフサイクル確認
-        Log.d("GameFragment", "GameFragment created!")
+        Log.d("GameFragment", "GameViewModel created!")
+        Log.d("GameFragment", "Word: ${viewModel.currentScrambleWord} " +
+                "Score: ${viewModel.score} WordCount: ${viewModel.currentWordCount}")
 
         return binding.root
     }
@@ -103,16 +105,6 @@ class GameFragment : Fragment() {
     }
 
     /*
-     * Gets a random word for the list of words and shuffles the letters in it.
-     */
-    private fun getNextScrambledWord(): String {
-        val tempWord = allWordsList.random().toCharArray()
-        tempWord.shuffle()
-        return String(tempWord)
-    }
-
-
-    /*
     * Sets and resets the text field error status.
     */
     private fun setErrorTextField(error: Boolean) {
@@ -151,6 +143,7 @@ class GameFragment : Fragment() {
     * restart the game.
     */
     private fun restartGame() {
+        viewModel.reinitializeData()
         setErrorTextField(false)
         updateNextWordOnScreen()
     }
