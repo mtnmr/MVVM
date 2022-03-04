@@ -1,8 +1,13 @@
 package com.example.android.unscramble.ui.game
 
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.TtsSpan
 import android.util.Log
+import androidx.core.text.set
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 
 class GameViewModel:ViewModel() {
@@ -18,6 +23,25 @@ class GameViewModel:ViewModel() {
     private val _currentScrambledWord = MutableLiveData<String>()
     val currentScrambleWord: LiveData<String>
         get() = _currentScrambledWord
+
+    //talkBackを有効にして使用する時、currentScrambleWordが単語のように読み上げられるのではなく
+    //個々の文字を読み上げられるように設定する
+//    val currentScrambleWord: LiveData<Spannable> = Transformations.map(_currentScrambledWord){
+//        if (it == null){
+//            SpannableString("")
+//        }else{
+//            val scrambleWord = it.toString()
+//            val spannable:Spannable = SpannableString(scrambleWord)
+//            spannable.setSpan(
+//                TtsSpan.VerbatimBuilder(scrambleWord).build(),
+//                0,
+//                scrambleWord.length,
+//                Spannable.SPAN_INCLUSIVE_INCLUSIVE
+//            )
+//            spannable
+//        }
+//    }
+
 
     private val wordList : MutableList<String> = mutableListOf()
     private lateinit var currentWord:String
