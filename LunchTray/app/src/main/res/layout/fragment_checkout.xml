@@ -26,6 +26,9 @@
         <variable
             name="viewModel"
             type="com.example.lunchtray.model.OrderViewModel" />
+        <variable
+            name="checkoutFragment"
+            type="com.example.lunchtray.ui.order.CheckoutFragment" />
     </data>
 
     <ScrollView
@@ -146,7 +149,8 @@
                 android:text="@string/submit"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/total"/>
+                app:layout_constraintTop_toBottomOf="@id/total"
+                android:onClick="@{() -> checkoutFragment.submitOrder()}"/>
 
             <!-- TODO: cancel the order when clicked -->
             <Button
@@ -158,7 +162,8 @@
                 android:text="@string/cancel"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/submit_button"/>
+                app:layout_constraintTop_toBottomOf="@id/submit_button"
+                android:onClick="@{() -> checkoutFragment.cancelOrder()}"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
